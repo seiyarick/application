@@ -4,6 +4,10 @@ class ListsController < ApplicationController
    @list = List.new
   end
 
+  def index
+    @lists = List.all
+  end
+
   def create
     list = List.new(lists_params)
 
