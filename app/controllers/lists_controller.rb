@@ -8,12 +8,16 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
+  def show
+    @list = List.find(params[:id])
+  end
+
   def create
     list = List.new(lists_params)
 
     list.save
 
-    redirect_to '/homes/top'
+    redirect_to list_path(list.id)
   end
 
   private
